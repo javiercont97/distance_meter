@@ -1,0 +1,10 @@
+<launch>
+  
+  <!-- Se publica la imagen de la camara -->
+  <node name="image_msg_publisher" pkg="distance_meter" type="image_msg_publisher.py"/>
+  <!-- Se calcula la distancia y se la publica -->
+  <node name="distance_node" pkg="distance_meter" type="distance.py"/>
+  <!-- En lugar de rviz, un codigo se suscribe al topico del resultado y lo muestra -->
+  <node name="image_msg_subscriber" pkg="distance_meter" type="image_msg_subscriber.py"/>
+  
+</launch>
