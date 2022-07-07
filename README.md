@@ -9,21 +9,12 @@ Puede correr los ejemplos con:
 ```
 roslaunch distance_meter demostration1.launch
 ```
-
-![alt text](https://github.com/WilberRojas/distance_meter/blob/main/images/demo1.gif)
-
 ```
 roslaunch distance_meter demostration2.launch
 ```
-
-![alt text](https://github.com/WilberRojas/distance_meter/blob/main/images/demo2.gif)
-
 ```
 roslaunch distance_meter demostration3.launch
 ```
-
-![alt text](https://github.com/WilberRojas/distance_meter/blob/main/images/demo3.gif)
-
 ---
 Si quiere probarlo con su propia cámara corra:
 
@@ -39,3 +30,9 @@ cap=cv2.VideoCapture('/dev/video4')
 ```{python3}
 QR_size = 17 #cm
 ```
+odio git
+fdsafdsa
+fdsa
+fdsa
+fdsa
+.p.p.p.p.p
