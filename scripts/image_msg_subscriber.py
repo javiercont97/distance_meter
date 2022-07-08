@@ -26,6 +26,8 @@ def image_callback(msg):
     
     cv2.waitKey(1)    
 
+#Topico de la camara: /video_stream
+#Topico del resiltado: /distance_estimation
 rospy.Subscriber("/distance_estimation", Image, image_callback)
 
 try:
