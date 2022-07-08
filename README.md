@@ -1,28 +1,26 @@
 # Distance Meter
 
-Este repositorio es un package de ROS, por lo que se puede clonar en el src de un workspace.
+Este repositorio es un package de ROS, por lo que se puede clonar en el src de un workspace. El proyecto se desarrollo en ROS Noetic y Ubuntu 20.04.
 
-El codigo se desarrollo para funcionar con codigos QR cuadrados. Para los ejemplos se uso un QR de 17 x 17 cm
+Para correr los códigos con los archivos .launch que se indican a continuación, recuerde hacer ejecutables los archivos .py en la ***carpeta scripts***. Puede usar el siguiente comando:
+```
+chmod +x *.py
+```
+
+Es posible que necesite instalarse la libreria pyzbar, el comando para ubuntu es el siguiente:
+
+```
+sudo apt-get install libzbar0
+```
 
 ---
-Puede correr los ejemplos con:
+Puede correr el demo con:
 ```
-roslaunch distance_meter demostration1.launch
-```
-
-![alt text](https://github.com/WilberRojas/distance_meter/blob/main/images/demo1.gif)
-
-```
-roslaunch distance_meter demostration2.launch
+roslaunch distance_meter demo.launch
 ```
 
-![alt text](https://github.com/WilberRojas/distance_meter/blob/main/images/demo2.gif)
 
-```
-roslaunch distance_meter demostration3.launch
-```
-
-![alt text](https://github.com/WilberRojas/distance_meter/blob/main/images/demo3.gif)
+Para los ejemplos se uso un codigo QR de 17 x 17 cm
 
 ---
 Si quiere probarlo con su propia cámara corra:
@@ -31,11 +29,8 @@ Si quiere probarlo con su propia cámara corra:
 roslaunch distance_meter camera.launch
 ```
 
-> No olvide cambiar el dispositivo en ***image_msg_publisher.py***, linea 10
+> No olvide cambiar el dispositivo en ***image_msg_publisher.py***, linea 10:
 ```{python3}
 cap=cv2.VideoCapture('/dev/video4')
 ```
-> En ***distance.py***, linea 13, configure el tamaño de su codigo QR
-```{python3}
-QR_size = 17 #cm
-```
+El codigo QR debe contener el dato de su longitud en centimetros. Puede revisar un ejemplo en el archivo ***qr.pdf***

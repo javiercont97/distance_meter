@@ -12,7 +12,7 @@ def image_callback(msg):
     img = CvBridge().imgmsg_to_cv2(msg, "bgr8")    
 
     #Redimensionamiento
-    scale_percent = 100
+    scale_percent = 200
     width = int(img.shape[1] * scale_percent / 100)
     height = int(img.shape[0] * scale_percent / 100)
     dim = (width, height)
