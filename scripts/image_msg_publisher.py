@@ -7,7 +7,7 @@ from cv_bridge import CvBridge
 import linecache
 
 rospy.init_node('image_msg_publisher',anonymous=True)
-image_pub=rospy.Publisher("/video_stream",Image, queue_size=1)	
+image_pub=rospy.Publisher("/usb_cam/image_raw",Image, queue_size=1)	
 cap=cv2.VideoCapture('/dev/video4')
 bridge=CvBridge()
 
