@@ -9,8 +9,6 @@ py qr_python
 ```
 ---
 AUTORES:
-Arias Ortega, Ruben Sergio
-```
-Contreras, Javier
-```
+Arias Ortega, Ruben Sergio -
+Contreras, Javier -
 Rojas, Wilber
