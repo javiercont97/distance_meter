@@ -18,12 +18,8 @@ Puede correr el demo con:
 ```
 roslaunch distance_meter demo.launch
 ```
-
-
-Para los ejemplos se uso un codigo QR de 17 x 17 cm
-
 ---
-Si quiere probarlo con su propia cámara corra:
+Si quiere probarlo con su propia cámara primero deberá calibrarla. En dos terminales diferentes corra:
 
 ```
 roslaunch distance_meter camera.launch
@@ -34,3 +30,25 @@ roslaunch distance_meter camera.launch
 cap=cv2.VideoCapture('/dev/video4')
 ```
 El codigo QR debe contener el dato de su longitud en centimetros. Puede revisar un ejemplo en el archivo ***qr.pdf***
+
+> En caso de que la medicion de distancia sea incorrecta, es posible que necesite calibrar su camara. Para ello corra en dos terminales diferentes:
+
+1. Para lanzar la camara:
+```
+roslaunch distance_meter calibration.launch
+```
+2. Para lanzar el Wizard de calibracion:
+```
+rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.0235 image:=/usb_cam/image_raw camera:=/usb_cam
+```
+En este ultimo necesitara un checkerboard, puede utilizar el adjunto en el repositorio.
+
+Aclarar que:
+*  **--size** es el numero de intersecciones entre cuadrados negros
+*  **--square** es el tamaño de cada cuadrado negro (en metros).
+
+Debera mover el checkerboard frente a la camara hasta que todos los parametros sean de color verde y se habilite el boton de calibrar. 
+
+Una vez calibrado y comiteado, deberia medir correctamente la distancia de los codigos QR.
+
+
