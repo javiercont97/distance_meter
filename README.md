@@ -1,38 +1,16 @@
 # Distance Meter
 
-Este repositorio es un package de ROS, por lo que se puede clonar en el src de un workspace.
-
-El codigo se desarrollo para funcionar con codigos QR cuadrados. Para los ejemplos se uso un QR de 17 x 17 cm
+Este repositorio es un codigo que permite medir distancia entre dos QR
 
 ---
-Puede correr los ejemplos con:
+Puede correr los ejemplos se debe utilizar:
 ```
-roslaunch distance_meter demostration1.launch
-```
-```
-roslaunch distance_meter demostration2.launch
+py qr_python
 ```
 ```
-roslaunch distance_meter demostration3.launch
+AUTORES 
 ```
----
-Si quiere probarlo con su propia cámara corra:
-
 ```
-roslaunch distance_meter camera.launch
-```
-
-> No olvide cambiar el dispositivo en ***image_msg_publisher.py***, linea 10
-```{python3}
-cap=cv2.VideoCapture('/dev/video4')
-```
-> En ***distance.py***, linea 13, configure el tamaño de su codigo QR
-```{python3}
-QR_size = 17 #cm
-```
-odio git
-fdsafdsa
-fdsa
-fdsa
-fdsa
-.p.p.p.p.p
+Arias Ortega, Ruben Sergio
+Contreras, Javier
+Rojas, Wilber
