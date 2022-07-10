@@ -8,9 +8,7 @@ Puede correr los ejemplos se debe utilizar:
 py qr_python
 ```
 ```
-AUTORES 
-```
-```
+AUTORES:
 Arias Ortega, Ruben Sergio
 Contreras, Javier
 Rojas, Wilber
