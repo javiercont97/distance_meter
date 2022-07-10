@@ -59,32 +59,25 @@ def image_callback(msg):
         try:
             data_float = float(barcode.data.decode("utf-8"))
         except:
-            cv2.putText(frame, "No valido", pt_text, cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+            data_float = barcode.data.decode("utf-8")
+            cv2.putText(frame, data_float, (30,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
             continue
         
         # correcion del error de impresion en el tamaño del QR:
-        QR_size = data_float 
-
-        # Estimacion de distancia: 
-        # toma en cuenta la arista mas larga del QR
-        dist_max, edge_max = max_edge(pts)
-
-        # Para la toma de datos
-        #cv2.putText(frame, str(round(dist_max)), (30,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 8)
-
-        # ---------------------------------------------------------------------------------------------------------
-        
-        # Para la toma de datos
-        cv2.putText(frame, str(round(dist_max)), (30,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,100,255), 8)
-
         QR_size = data_float * (0.88)
 
         # Estimacion de distancia: 
         # toma en cuenta la arista mas larga del QR
         dist_max, edge_max = max_edge(pts)
+
+        # Para la toma de datos
+        #cv2.putText(frame, str(round(dist_max)), (30,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 8)        
+
+        # Estimacion de distancia: 
+        # toma en cuenta la arista mas larga del QR
+        dist_max, edge_max = max_edge(pts)
         dist_z = 10601*dist_max**(-0.966)        
-        dist_z = (QR_size/15)*dist_z
-        
+        dist_z = (QR_size/15)*dist_z        
 
         # Se calcula la distancia X en cm
         dist_px_X = pt_center[0] - frame.shape[1]/2
@@ -95,9 +88,11 @@ def image_callback(msg):
         dist_y = QR_size  * (dist_px_Y / h)
 
         dists_barcode.append( [dist_x, dist_y, dist_z, int(pt_center[0]), int(pt_center[1]) ] )
-        cv2.putText(frame, f"({round(dist_z)}) cm", pt_text, cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 4)
+        #cv2.putText(frame, f"({round(dist_z)}) cm", pt_text, cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 4)
         #cv2.line(frame, (int(frame.shape[1]/2), int(frame.shape[0]/2)), pt_center, (150,150, 50), 2)
-        cv2.line(frame, edge_max[0], edge_max[1], (0,255, 0), 3)
+        #cv2.line(frame, edge_max[0], edge_max[1], (0,255, 0), 3)
+        cv2.line(frame, pts[0][3], pts[0][1], (0,255, 0), 3)
+
 
 
     if len(dists_barcode) > 2:
